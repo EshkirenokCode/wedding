@@ -200,13 +200,14 @@
     object-position: center bottom;
     display: block;
   }
-  .cutout.bride { transform: rotate(-4deg); }
-  .cutout.groom { transform: rotate(4deg); }
-  /* Alina's PNG has more empty canvas around her — scale her up more so she
-     visually matches Ilya. transform-origin: bottom keeps her feet planted. */
+  .cutout.bride { transform: rotate(-4deg) translateX(65px); }
+  .cutout.groom { transform: rotate(4deg)  translateX(-16px); }
+  /* Alina's PNG has transparent space below her feet, so her subject floats
+     higher in the container than Ilya's. translateY(after scale) pushes the
+     scaled image down so her feet align with his. */
   .cutout.bride img {
     filter: url(#sticker-yellow);
-    transform: scale(2.4);
+    transform: translateY(85px) scale(2.4);
     transform-origin: center bottom;
   }
   .cutout.groom img {
@@ -226,9 +227,9 @@
     box-shadow: 2px 2px 0 var(--ink);
     white-space: nowrap;
   }
-  /* Position role-tags INSIDE the card so they're not clipped by #root overflow */
-  .role-tag.bride { top: 8px;  left: 4px;  color: var(--red);  background: #fff3c8; transform: rotate(-12deg); }
-  .role-tag.groom { top: 8px;  right: 4px; color: var(--blue); background: #cfe0f7; transform: rotate(10deg);  }
+  /* Position role-tags well inside the card so they're not clipped by #root overflow */
+  .role-tag.bride { top: 14px; left: -35px;  color: var(--red);  background: #fff3c8; transform: rotate(-8deg); transform-origin: top left; }
+  .role-tag.groom { top: 14px; right: 20px; color: var(--blue); background: #cfe0f7; transform: rotate(8deg);  transform-origin: top right; }
 
   .stage-heart {
     position: absolute;
