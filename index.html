@@ -99,23 +99,23 @@
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
-    gap: 2px;
-    padding: 16px 12px 10px;
-    overflow: hidden;
+    gap: 1px;
+    padding: 14px 8px 10px;
   }
   .flag {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px; height: 46px;
+    width: 30px; height: 36px;
     font-family: 'Kalam', cursive;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 20px;
     color: #2b2218;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
     border: 1.5px solid #2b2218;
-    margin: 0 2px;
+    margin: 0 1px;
+    flex-shrink: 0;
   }
   .flag .pin {
     position: absolute;
@@ -142,26 +142,30 @@
     transform: rotate(-1.5deg);
   }
   .hero-couple {
-    margin-top: 16px;
+    margin-top: 18px;
     font-family: 'Kalam', cursive;
     font-weight: 700;
     line-height: .95;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .hero-couple .name {
     display: block;
-    font-size: 60px;
+    font-size: 58px;
     text-transform: uppercase;
+    letter-spacing: .01em;
   }
-  .hero-couple .name.ilya  { color: var(--blue); }
-  .hero-couple .name.alina { color: var(--red); transform: translateX(20px); }
+  .hero-couple .name.ilya  { color: var(--blue); transform: rotate(-1deg); }
+  .hero-couple .name.alina { color: var(--red);  transform: rotate(1deg); }
   .hero-couple .amp {
     display: inline-block;
     font-family: 'Caveat', cursive;
-    font-size: 60px;
+    font-size: 46px;
     color: var(--green);
     transform: rotate(-8deg);
-    line-height: .8;
-    margin: -8px 0;
+    line-height: .9;
+    margin: 2px 0;
   }
 
   .squiggle {
@@ -173,20 +177,21 @@
   /* Cutout photos — transparent PNGs with sticker outline via SVG filter */
   .photos-stage {
     position: relative;
-    margin: 28px -24px 24px;
+    margin: 24px 0 18px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     gap: 0;
-    min-height: 360px;
+    min-height: 380px;
   }
   .cutout {
     position: relative;
     flex: 1 1 0;
-    aspect-ratio: 3 / 4;
+    height: 360px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    overflow: visible;
   }
   .cutout img {
     width: 100%;
@@ -197,23 +202,23 @@
   }
   .cutout.bride { transform: rotate(-4deg); }
   .cutout.groom { transform: rotate(4deg); }
-  /* Alina's PNG has more empty canvas around the subject — scale her up so
-     she reads at the same size as Ilya. transform-origin keeps her feet planted. */
+  /* Alina's PNG has more empty canvas around her — scale her up more so she
+     visually matches Ilya. transform-origin: bottom keeps her feet planted. */
   .cutout.bride img {
     filter: url(#sticker-yellow);
-    transform: scale(2.1);
+    transform: scale(2.4);
     transform-origin: center bottom;
   }
   .cutout.groom img {
     filter: url(#sticker-blue);
-    transform: scale(1.45);
+    transform: scale(1.55);
     transform-origin: center bottom;
   }
 
   .role-tag {
     position: absolute;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 18px;
+    font-size: 17px;
     padding: 4px 12px;
     border: 2px solid var(--ink);
     background: var(--paper);
@@ -221,8 +226,9 @@
     box-shadow: 2px 2px 0 var(--ink);
     white-space: nowrap;
   }
-  .role-tag.bride { top: -10px; left: -8px;  color: var(--red);  background: #fff3c8; transform: rotate(-14deg); }
-  .role-tag.groom { top: -10px; right: -8px; color: var(--blue); background: #cfe0f7; transform: rotate(12deg); }
+  /* Position role-tags INSIDE the card so they're not clipped by #root overflow */
+  .role-tag.bride { top: 8px;  left: 4px;  color: var(--red);  background: #fff3c8; transform: rotate(-12deg); }
+  .role-tag.groom { top: 8px;  right: 4px; color: var(--blue); background: #cfe0f7; transform: rotate(10deg);  }
 
   .stage-heart {
     position: absolute;
