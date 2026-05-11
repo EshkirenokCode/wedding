@@ -127,6 +127,14 @@
   }
   .flag:nth-child(odd) { transform: rotate(-2deg); }
   .flag:nth-child(even) { transform: rotate(2deg); }
+  /* Narrow screens: shrink flags so the whole "У НАС СВАДЬБА" line fits. */
+  @media (max-width: 420px) {
+    .bunting { padding: 14px 4px 10px; gap: 0; }
+    .flag    { width: 24px; height: 30px; font-size: 16px; margin: 0 0.5px; }
+  }
+  @media (max-width: 360px) {
+    .flag    { width: 22px; height: 28px; font-size: 14px; }
+  }
 
   /* Hero */
   .hero {
@@ -693,7 +701,7 @@
           <div class="card-body">
             Цветы прекрасны, но
             <span class="hl red">невеста переживает</span>,
-            что у неё нет столько ваз — поэтому будем рады другому знаку внимания.
+            что у неё нет столько ваз. Если хочется сделать приятное — будем рады подарку нашим четырём кошкам 🐱 А всё, что им не пригодится, передадим в приют после праздника 🐾
           </div>
           <svg class="corner tr" viewBox="0 0 32 30" aria-hidden="true">
             <path d="M16 27 C 5 19, 2 11, 6 6 C 10 2, 14 5, 16 9 C 18 5, 22 2, 26 6 C 30 11, 27 19, 16 27 Z"
